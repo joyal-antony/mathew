@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 
-const FirstForm = () => {
+const FirstForm = ({ setResult, result, setShow1, setShow2, setShow3 }) => {
   const [data, setData] = useState();
   const submitHandler = () => {
-    console.log(data);
+    setResult(data);
+    setShow1(false);
+    setShow2(true);
+    setShow3(false);
   };
   return (
     <div className="w-full p-5  rounded-lg shadow-lg bg-white max-w-md space-y-8">

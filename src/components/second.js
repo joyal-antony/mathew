@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 
-const SecondForm = () => {
+const SecondForm = ({ setResult, result, setShow1, setShow2, setShow3 }) => {
   const [data, setData] = useState();
   const submitHandler = () => {
-    console.log(data);
+    setResult(() => ({ ...result, ...data }));
+    setShow1(false);
+    setShow2(false);
+    setShow3(true);
   };
 
   function toggleField(hideObj, showObj) {
@@ -152,6 +155,27 @@ const SecondForm = () => {
             disabled
           />
         </div>
+      </div>
+
+      <label
+        htmlFor="Description"
+        className="block text-sm font-medium text-gray-700"
+      >
+        Description
+      </label>
+      <div className="relative mt-1 rounded-md shadow-sm">
+        <select
+          onChange={(e) => {
+            setData(() => ({ ...data, Description: e.target.value }));
+          }}
+          id="Description"
+          name="Description"
+          className="w-full rounded-md border-gray-300 bg-transparent  pl-7 pr-12 text-gray-500 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+        >
+          <option>Description1</option>
+          <option>Description2</option>
+          <option>Description3</option>
+        </select>
       </div>
 
       <div className="flex space-x-2 justify-center">
